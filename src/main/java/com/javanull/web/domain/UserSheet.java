@@ -4,25 +4,19 @@ import com.xuxueli.poi.excel.annotation.ExcelField;
 import com.xuxueli.poi.excel.annotation.ExcelSheet;
 import org.apache.poi.hssf.util.HSSFColor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 
 /**
- * Created by lizhiming on 2018/3/13.
+ * Created by lizhiming on 2018/3/18.
  */
-@Entity
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@ExcelSheet(name = "商户列表", headColor = HSSFColor.HSSFColorPredefined.LIGHT_GREEN)
+public class UserSheet {
     @ExcelField(name = "商户ID")
     private Long id;
 
-    @Column
     @ExcelField(name = "商户名称")
     private String name;
 
-    @Column
-    private String url;
 
     public Long getId() {
         return id;
@@ -38,13 +32,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 }
